@@ -1,10 +1,42 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/ClickBox.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Plants/flower_purpleA_NE.png" type="Texture" id=2]
 [ext_resource path="res://Plot/Plant.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 15 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Finished_Growing"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.8, 1.8 ), Vector2( 2.6, 2.6 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Growing"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 2, 2 ) ]
+}
 
 [node name="Plant" type="Node2D"]
 script = ExtResource( 3 )
@@ -13,8 +45,18 @@ script = ExtResource( 3 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickBox"]
+position = Vector2( 0, -12 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -13 )
 region_enabled = true
-region_rect = Rect2( 244, 289, 26, 30 )
+region_rect = Rect2( 244, 290, 26, 26 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Finished_Growing = SubResource( 3 )
+anims/Growing = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]

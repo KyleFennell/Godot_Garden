@@ -5,7 +5,6 @@ var growing = true
 var plot
 var plant : PlantResource
 
-
 func _ready():
 	print("ready")
 	if $ClickBox:
@@ -17,13 +16,8 @@ func initialise(plot, plant: PlantResource):
 	self.plant = plant
 	
 	get_tree().create_timer(self.plant.grow_time).connect("timeout", self, "finished_growing")
-	var sprite = Sprite.new()
-	sprite.texture = self.plant.sprites[randi() % self.plant.sprites.size()]
-	sprite.translate(self.plant.sprite_translation)
-	sprite.region_enabled = self.plant.sprite_region_enabled
-	if (sprite.region_enabled):
-		sprite.region_rect = self.plant.sprite_region_rect
-	self.add_child(sprite)
+	$AnimationPlayer.play("Growing", -1, 1/plant.grow_time)
+	$Sprite.texture = plant.sprites[randi() % plant.sprites.size()]
 	
 	$ClickBox.add_child(CollisionShape2D.new())
 	
@@ -31,6 +25,11 @@ func initialise(plot, plant: PlantResource):
 func finished_growing():
 	print("finished growing")
 	growing = false
+	$AnimationPlayer.play("Finished_Growing")
+
+func animation_finished():
+	if $AnimationPlayer.current_animation == "finished_growing":
+		pass
 	
 func on_left_click():
 	if not growing:

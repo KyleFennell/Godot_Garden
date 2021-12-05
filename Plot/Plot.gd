@@ -21,6 +21,7 @@ func add_plant(plant):
 	var plant_child = Plant.instance()
 	self.add_child(plant_child, true)
 	plant_child.initialise(self, plant)
+	plant_child.position = Vector2(randi() % 10 - 5, -40 + randi() % 10 - 5)
 	plant_child.connect("tree_exited", self, "on_plant_removed")
 	
 func on_plant_removed():

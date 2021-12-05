@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Plot/Plot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Plants/flower_purpleA_SW.png" type="Texture" id=4]
 
 [node name="MainScene" type="Node2D"]
 
@@ -36,7 +35,3 @@ position = Vector2( 520, 400 )
 
 [node name="Plot9" parent="World" instance=ExtResource( 2 )]
 position = Vector2( 456, 432 )
-
-[node name="FlowerPurpleASw" type="Sprite" parent="."]
-position = Vector2( -28, 241 )
-texture = ExtResource( 4 )
