@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/breeding_pair.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Plants/orange_plant.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Plants/red_plant.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Plants/yellow_plant.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+parent1 = ExtResource( 3 )
+parent2 = ExtResource( 4 )
+child = ExtResource( 2 )
+chance = 1.0

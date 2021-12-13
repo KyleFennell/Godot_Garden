@@ -17,7 +17,7 @@ func _ready():
 		
 func get_item(item_name):
 	for i in items:
-		if i.name ==item_name:
+		if i.name == item_name:
 			return i
 	
 	return null

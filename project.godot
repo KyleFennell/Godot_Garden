@@ -9,13 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Inventory",
+"base": "Resource",
+"class": "BreedingPair",
 "language": "GDScript",
-"path": "res://UI/Inventory.gd"
+"path": "res://Resources/breeding_pair.gd"
 }, {
 "base": "Resource",
-"class": "ItemResource",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://UI/Inventory/Inventory.gd"
+}, {
+"base": "Resource",
+"class": "Item",
 "language": "GDScript",
 "path": "res://Resources/item.gd"
 }, {
@@ -25,8 +30,9 @@ _global_script_classes=[ {
 "path": "res://Resources/plant.gd"
 } ]
 _global_script_class_icons={
+"BreedingPair": "",
 "Inventory": "",
-"ItemResource": "",
+"Item": "",
 "PlantResource": ""
 }
 
@@ -39,8 +45,10 @@ config/icon="res://icon.png"
 [autoload]
 
 ItemDatabase="*res://Managers/ItemDatabase.gd"
+PlantDatabase="*res://Managers/PlantDatabase.gd"
 GameManager="*res://Managers/GameManager.gd"
 SingleClickManager="*res://Managers/SingleClickManager.gd"
+DragDropManager="*res://Managers/DragDropManager.gd"
 
 [input]
 

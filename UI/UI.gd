@@ -1,7 +1,7 @@
 extends Node
 
-var inventory_resource = load("res://UI/Inventory.gd")
-var inventory = inventory_resource.new()
+var inventory = load("res://UI/Inventory/Inventory.tres")
 
 func _ready():
-	inventory.add_item("Basic Plant", 3)
+	
+	pass

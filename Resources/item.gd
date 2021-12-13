@@ -1,6 +1,6 @@
 extends Resource
-class_name ItemResource
+class_name Item
 
 export var name : String
-export var texture : Texture
-#export var parents : Array
+export(Texture) var texture
+export(Resource) var plant

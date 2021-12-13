@@ -1,23 +1,22 @@
 extends Node
 
-signal player_initialised
+signal ui_initialised
 
-var player
+var ui
 
 func _process(delta):
-	if not player:
-		initialise_player()
+	if not ui:
+		initialise_ui()
 		return
 		
-func initialise_player():
-	player = get_tree().get_root().get_node("/root/MainScene/UI")
-	if not player:
+func initialise_ui():
+	ui = get_tree().get_root().get_node("/root/MainScene/UI")
+	if not ui:
 		return
 	
-	emit_signal("player_initialised", player)
-	player.inventory.connect("inventory_changed", self, "_on_player_inventory_changed")
-	player.inventory.add_item("Basic Plant", 5)
+	emit_signal("ui_initialised", ui)
+	ui.inventory.connect("inventory_changed", self, "_on_ui_inventory_changed")
 
-func _on_player_inventory_changed(inventory):
+func _on_ui_inventory_changed(inventory):
 	print("inventory changed")
 	pass
