@@ -35,7 +35,8 @@ func process_plant_breeding_pairs():
 			print("added breeding_pair:", filename)
 			var bp: BreedingPair = load("res://Resources/BreedingPairs/%s" % filename)
 			bp.parent1.breeds_with.append({"name": bp.parent2.name, "chance": bp.chance, "child": bp.child.name})
-			bp.parent2.breeds_with.append({"name": bp.parent1.name, "chance": bp.chance, "child": bp.child.name})
+			if bp.parent1.name != bp.parent2.name:
+				bp.parent2.breeds_with.append({"name": bp.parent1.name, "chance": bp.chance, "child": bp.child.name})
 		filename = directory.get_next()
 	pass
 	

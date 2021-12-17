@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Resources/item.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Plants/tile019.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Plants/blue_bop.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Blue Bop"
+texture = ExtResource( 2 )
+plant = ExtResource( 3 )
